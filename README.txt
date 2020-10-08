@@ -34,9 +34,9 @@ DESCRIPTION:
 
  This program is useful when the file is too big and there is not enough
  disk space in local filesystem
- Example: tar -cf (big content) | md5tee save_the_md5_locally.txt | s3cmd put s3://somewhere
+ Example: tar -cf (big content) | md5tee save_the_md5_locally.txt | s3cmd put - s3://somewhere/somefilename
  
- (c) 2020 Pedro Zorzenon Neto https://pzn.com.br/md5tee
+ (c) 2020 Pedro Zorzenon Neto https://github.com/pzn1977/md5tee
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published

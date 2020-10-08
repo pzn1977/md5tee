@@ -46,7 +46,7 @@ int main (int argc, char ** argv) {
 	     "use enviroment var CHUNKSIZE to change it. CHUNKSIZE=0 will disable s3md5\n"
 	     "default CHUNKSIZE is %i bytes\n\n"
 	     "This program is useful when the file is too big and there is not enough disk space in local filesystem\nExample: tar -cf (big content) | md5tee save_the_md5_locally.txt | s3cmd put s3://somewhere\n\n"
-	     "(c) 2020 Pedro Zorzenon Neto https://pzn.com.br/md5tee\n", CHUNKSIZE_DEFAULT);
+	     "(c) 2020 Pedro Zorzenon Neto https://github.com/pzn1977/md5tee\n", CHUNKSIZE_DEFAULT);
       return 0;
     }
     if ((strcmp(argv[1],"-v") == 0) ||
