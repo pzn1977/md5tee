@@ -33,8 +33,8 @@ DESCRIPTION:
  see --help for default CHUNKSIZE. Use 0 to disable it.
 
  This program is useful when the file is too big and there is not enough
- disk space in local filesystem
- Example: tar -cf (big content) | md5tee save_the_md5_locally.txt | s3cmd put - s3://somewhere/somefilename
+ disk space in local filesystem to store the tarfile and calculate md5
+ Example: tar -z -c -f /dev/stdout /path/with/huge/files/ | md5tee save_the_md5_locally.txt | s3cmd put - s3://somewhere/somefilename
  
  (c) 2020 Pedro Zorzenon Neto https://github.com/pzn1977/md5tee
 
