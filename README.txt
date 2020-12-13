@@ -38,6 +38,8 @@ DESCRIPTION:
  
  (c) 2020 Pedro Zorzenon Neto https://github.com/pzn1977/md5tee
 
+ SUPPORT ME: https://github.com/pzn1977/pep1.git
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published
 by the Free Software Foundation, either version 3 of the License,
