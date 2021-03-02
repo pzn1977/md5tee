@@ -35,6 +35,9 @@ DESCRIPTION:
  This program is useful when the file is too big and there is not enough
  disk space in local filesystem to store the tarfile and calculate md5
  Example: tar -z -c -f /dev/stdout /path/with/huge/files/ | md5tee save_the_md5_locally.txt | s3cmd put - s3://somewhere/somefilename
+
+ You can view md5sum of files on s3 storage with this command:
+ s3cmd --list-md5 ls s3://somewhere
  
  (c) 2020 Pedro Zorzenon Neto https://github.com/pzn1977/md5tee
 
