@@ -1,0 +1,32 @@
+*** Example procedure to test mmc or sdcard filling it with random and check md5sum ***
+
+# !!! WARN: this procedure will ERASE COMPLETELY the sd/mmc card !!!
+# !!! if you make mistakes in selecting the right device (mmcblk0 in the example below)
+# !!! you can erase the wrong device !!! You've been warned, take care !!!
+
+# run commands as root
+
+lsblk
+# we identified that sdcard is at mmcblk0 with 64GB
+
+# getting the size in bytes
+blockdev --getsize64 /dev/mmcblk0
+63864569856
+
+# convert to blocks
+63864569856 / 512 = 124735488 blocks
+
+# filling the entire sdcard with random data
+dd if=/dev/urandom bs=512 count=124735488 | CHUNKSIZE=0 md5tee /tmp/md5-write.txt | dd of=/dev/mmcblk0 bs=512 status=progress
+
+# sync output buffers, this may take a minute
+sync
+
+# drop RAM caches, to prevent some data to be read from caches
+echo 3 > /proc/sys/vm/drop_caches
+
+# read entire sdcard
+dd if=/dev/mmcblk0 bs=512 count=124735488 status=progress | md5sum - > /tmp/md5-read.txt
+
+# compare the contents of /tmp/md5-write.txt and /tmp/md5-read.txt
+# if md5 matches, then the write->read procedure was successful
